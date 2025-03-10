@@ -1,20 +1,19 @@
 name: Deployment Workflow 1 # Name of the workflow
-on: push # Event that triggers the workflow
-    jobs:   #   Jobs in the workflow
-        deploy: # Job name
-            runs-on: ubuntu-latest # Operating system
-            steps:
-                - name: Get the code # Step name
-                  uses: actions/checkout@v3 # Action to checkout the code
-                - name: Install Dependencies # Step name
-                  run: npm ci # Command to install dependencies
-                - name: Lint    # Step name
-                  run: npm run lint # Command to run linting
-                - name: Test Code   # Step name
-                  run: npm run test # Command to run tests
-                - name: Build   # Step name
-                  run: npm run build # Command to build the project
-                - name: Deploy  # Step name
-                  run: echo "Deploying..." # Command to deploy the project
-                  run: echo "Deployed!" # Command to confirm deployment
+on: [push] # Event that triggers the workflow
+jobs: #   Jobs in the workflow
+  deploy: # Job name
+    runs-on: ubuntu-latest # Operating system
+    steps:
+      - name: Get the code # Step name
+        uses: actions/checkout@v3 # Action to checkout the code
+      - name: Install Dependencies # Step name
+        run: npm ci # Command to install dependencies
+      - name: Lint # Step name
+        run: npm run lint # Command to run linting
+      - name: Test Code # Step name
+        run: npm run test # Command to run tests
+      - name: Build # Step name
+        run: npm run build # Command to build the project
+      - name: Deploy # Step name
+        run: echo "Deploying..." # Command to deploy the project
 
